@@ -38,7 +38,14 @@ void setup()
 
 
  total= total - readings[index];
+ 
  readings[index] = ((-59.16 * voltage / (273.15 + 25)) + 7.0);
+ /*
+ pH = ((the slope of the electrode * voltage / (absolute zero + temp liquid)) + isopotential point)
+ for Calibration isopotential point change float 7.0 during the measurement.
+ for the slope of the electrode change float "-59.16" during the measurement pH 4.0 or pH 10.0
+ change float "25" for temperature compensation
+ */
  total= total + readings[index];
  index = index + 1;
    // if we're at the end of the array...
